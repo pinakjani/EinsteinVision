@@ -32,9 +32,11 @@ def extract_frames_from_video(path_to_video):
     video.release()
     cv2.destroyAllWindows()
 
-def extract_data(input_dir, output_dir, dataset_name, view_points):
-    cwd = create_directory_at(output_dir, dataset_name)
-    for subdir, dirs, files in os.walk(input_dir):
+def extract_data(input_dir, output_dir, view_points):
+    input_path = os.path.join(os.getcwd(), input_dir)
+    output_path = os.getcwd()
+    cwd = create_directory_at(output_path, output_dir)
+    for subdir, dirs, files in os.walk(input_path):
         for file in files:
             data_dir_list = subdir.split('/')
             if (data_dir_list[-3] == "Sequences" and data_dir_list[-1] == "Undist"):
@@ -52,12 +54,11 @@ def extract_data(input_dir, output_dir, dataset_name, view_points):
                     
 
 def main():
-    data_dir = '/home/prajwal/Downloads/P3Data'     ## Input directory
-    root_dir = '/home/prajwal/EinsteinVision/data'  ## Output directory
-    dataset_name = 'Tesla'                          ## Name of the dataset directory
+    input_dir = 'tesla_raw'                          ## Input directory
+    output_dir = 'tesla_proc'                       ## Name of the output directory
     view_points = ["front"]                         ## List of view points
 
-    extract_data(data_dir, root_dir, dataset_name, view_points)
+    extract_data(input_dir, output_dir, view_points)
 
 
 if __name__ == '__main__':
