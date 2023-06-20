@@ -1,4 +1,6 @@
-Data/*/
-envs/*/
 .vscode/
-Temp/
+data/*/
+envs/*/
+temp/
+**/__pycache__
+*.pyc
