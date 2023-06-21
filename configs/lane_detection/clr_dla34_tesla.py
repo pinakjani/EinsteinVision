@@ -94,7 +94,7 @@ val_process = [
     dict(type='ToTensor', keys=['img']),
 ]
 
-dataset_path = './data/Tesla'
+dataset_path = './data/tesla_proc_2'
 dataset_type = 'Tesla'
 dataset = dict(train=dict(
     type=dataset_type,
